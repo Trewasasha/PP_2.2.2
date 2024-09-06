@@ -13,5 +13,10 @@
         </th:block>
     </div>
     <a href="/cars">Cars</a>
+    <div>
+        <th:block th:each="car : ${cars}">
+            <h1 th:text="${car}"></h1>
+        </th:block>
+    </div>
 </body>
 </html>

@@ -9,25 +9,25 @@ import java.util.stream.Collectors;
 
 @Service
 public class CarServiseImpl implements CarServise {
-    @Override
-    public List<Car> listCar() {
-        List<Car> cars = new ArrayList<Car>();
 
-        cars.add(new Car(1, "Lada", "red"));
-        cars.add(new Car(2, "Mitsubishi Lancer", "white"));
-        cars.add(new Car(3, "BMW", "blue"));
-        cars.add(new Car(4, "Honda", "green"));
-        cars.add(new Car(5, "Mercedes", "black"));
+    private List<Car> cars;
 
-        return cars;
+    public CarServiseImpl() {
+        this.cars = new ArrayList<>();
+        this.cars.add(new Car(1, "Lada", "red"));
+        this.cars.add(new Car(2, "Mitsubishi Lancer", "white"));
+        this.cars.add(new Car(3, "BMW", "blue"));
+        this.cars.add(new Car(4, "Honda", "green"));
+        this.cars.add(new Car(5, "Mercedes", "black"));
     }
+
 
     @Override
     public List<Car> showCars(Integer count) {
-        if ((count == null) || (count >= listCar().size())) {
-            return listCar();
+        if ((count == null) || (count >= cars.size())) {
+            return cars;
         }
-        return listCar().stream().limit(count).collect(Collectors.toList());
+        return cars.stream().limit(count).collect(Collectors.toList());
     }
 
 
